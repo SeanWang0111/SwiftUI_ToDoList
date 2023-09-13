@@ -2,7 +2,7 @@
 
 SwiftUI Masterclass: Build To Do List App
 
-https://youtu.be/t_mypMqSXNw?si=UaboePJnhlzT20fp
+https://youtu.be/t_mypMqSXNw?si=v_d_c4rj8734zuK5
 
 Exercise SwiftUI program project
 
