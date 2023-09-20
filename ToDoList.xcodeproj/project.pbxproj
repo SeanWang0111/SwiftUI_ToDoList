@@ -30,6 +30,7 @@
 		0691EE1B2AB1F34A00CA92AD /* LoginViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691EE1A2AB1F34A00CA92AD /* LoginViewViewModel.swift */; };
 		0691EE1D2AB1F36800CA92AD /* RegisterViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691EE1C2AB1F36800CA92AD /* RegisterViewViewModel.swift */; };
 		0691EE1F2AB1F39D00CA92AD /* ToDoListItemViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691EE1E2AB1F39D00CA92AD /* ToDoListItemViewViewModel.swift */; };
+		0691EE212AB305BD00CA92AD /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691EE202AB305BD00CA92AD /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		0691EE1A2AB1F34A00CA92AD /* LoginViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewViewModel.swift; sourceTree = "<group>"; };
 		0691EE1C2AB1F36800CA92AD /* RegisterViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewViewModel.swift; sourceTree = "<group>"; };
 		0691EE1E2AB1F39D00CA92AD /* ToDoListItemViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListItemViewViewModel.swift; sourceTree = "<group>"; };
+		0691EE202AB305BD00CA92AD /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		0691EDFE2AB1D90300CA92AD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0691EE202AB305BD00CA92AD /* HeaderView.swift */,
 				0691EE042AB1E65200CA92AD /* LoginView.swift */,
 				0691EDE92AB1B75600CA92AD /* MainView.swift */,
 				0691EE0A2AB1EF9B00CA92AD /* NewItemView.swift */,
@@ -233,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0691EE092AB1EF7300CA92AD /* ToDoListView.swift in Sources */,
+				0691EE212AB305BD00CA92AD /* HeaderView.swift in Sources */,
 				0691EDEA2AB1B75600CA92AD /* MainView.swift in Sources */,
 				0691EE1D2AB1F36800CA92AD /* RegisterViewViewModel.swift in Sources */,
 				0691EE132AB1F12F00CA92AD /* MainViewViewModel.swift in Sources */,
