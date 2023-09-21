@@ -34,12 +34,9 @@ struct RegisterView: View {
                 TextField("Password", text: $password)
                     .textFieldStyle(DefaultTextFieldStyle())
                 
-                TLButton(title: "Create Account",
-                         background: .green,
-                         action: {
+                TLButton(title: "Create Account", background: .green) {
                     // Create registration
-                    
-                })
+                }
                 .padding()
                 
             }
