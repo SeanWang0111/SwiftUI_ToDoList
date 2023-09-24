@@ -32,6 +32,7 @@
 		0691EE1F2AB1F39D00CA92AD /* ToDoListItemViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691EE1E2AB1F39D00CA92AD /* ToDoListItemViewViewModel.swift */; };
 		0691EE212AB305BD00CA92AD /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691EE202AB305BD00CA92AD /* HeaderView.swift */; };
 		0691EE232ABC3AAC00CA92AD /* TLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691EE222ABC3AAC00CA92AD /* TLButton.swift */; };
+		06E4D2E52ABF5A7200E0B25A /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4D2E42ABF5A7200E0B25A /* Encodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		0691EE1E2AB1F39D00CA92AD /* ToDoListItemViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListItemViewViewModel.swift; sourceTree = "<group>"; };
 		0691EE202AB305BD00CA92AD /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		0691EE222ABC3AAC00CA92AD /* TLButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLButton.swift; sourceTree = "<group>"; };
+		06E4D2E42ABF5A7200E0B25A /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 		0691EDE62AB1B75600CA92AD /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				06E4D2E62ABF5BEF00E0B25A /* Extension */,
 				0691EE002AB1D96600CA92AD /* Model */,
 				0691EE012AB1DA7900CA92AD /* Other */,
 				0691EDFE2AB1D90300CA92AD /* View */,
@@ -157,6 +160,14 @@
 				0691EDFC2AB1BE1300CA92AD /* GoogleService-Info.plist */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		06E4D2E62ABF5BEF00E0B25A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				06E4D2E42ABF5A7200E0B25A /* Encodable.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +268,7 @@
 				0691EDE82AB1B75600CA92AD /* ToDoListApp.swift in Sources */,
 				0691EE192AB1F30F00CA92AD /* NewItemViewViewModel.swift in Sources */,
 				0691EE1F2AB1F39D00CA92AD /* ToDoListItemViewViewModel.swift in Sources */,
+				06E4D2E52ABF5A7200E0B25A /* Encodable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

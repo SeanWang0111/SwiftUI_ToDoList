@@ -52,7 +52,23 @@ struct LoginView: View {
                 Spacer()
             }
         }
+        .overlay(
+            HideKeyboardButton()
+                .padding()
+                .frame(maxWidth: .infinity, alignment: .trailing), alignment: .bottom
+        )
     }
+    
+    struct HideKeyboardButton: View {
+        var body: some View {
+            Button(action: {
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            }) {
+                Text("Hide Keyboard")
+            }
+        }
+    }
+
 }
 
 struct LoginView_Previews: PreviewProvider {
