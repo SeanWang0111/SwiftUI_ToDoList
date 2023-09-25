@@ -14,8 +14,7 @@ class LoginViewViewModel: ObservableObject {
     @Published var password = ""
     @Published var errorMessage = ""
     
-    init() {
-    }
+    init() { }
     
     func login() {
         guard validate() else { return }

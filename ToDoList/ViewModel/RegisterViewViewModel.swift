@@ -15,8 +15,7 @@ class RegisterViewViewModel: ObservableObject {
     @Published var email = ""
     @Published var password = ""
     
-    init() {
-    }
+    init() { }
     
     func register() {
         guard validate() else { return }
