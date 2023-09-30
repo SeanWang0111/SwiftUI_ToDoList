@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
     
     @StateObject var viewModel = LoginViewViewModel()
+    @State private var isKeyboardVisible = false
     
     var body: some View {
         NavigationView {
@@ -21,54 +22,53 @@ struct LoginView: View {
                            background: .pink)
                 
                 // Login Form
-                Form {
-                    if !viewModel.errorMessage.isEmpty {
-                        Text(viewModel.errorMessage)
-                            .foregroundColor(.red)
-                    }
-                    
-                    TextField("Email Address", text: $viewModel.email)
-                        .textFieldStyle(DefaultTextFieldStyle())
-                        .autocapitalization(.none)
-                    
-                    TextField("Password", text: $viewModel.password)
-                        .textFieldStyle(DefaultTextFieldStyle())
-                    
-                    TLButton(title: "Log In", background: .blue) {
-                        viewModel.login()
-                    }
-                    .padding()
-                }
-                .offset(y: -50)
+                InputField
+                    .padding(.top, isKeyboardVisible ? -100 : -50)
                 
-                // Create Account
-                VStack {
-                    Text("New around here?")
-                    NavigationLink("Create An Account",
-                                   destination: RegisterView())
+                if isKeyboardVisible {
+                    HideKeyboardButton()
                 }
-                .padding(.bottom, 50)
-                
-                Spacer()
             }
         }
-        .overlay(
-            HideKeyboardButton()
-                .padding()
-                .frame(maxWidth: .infinity, alignment: .trailing), alignment: .bottom
-        )
+        .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
+            isKeyboardVisible = true
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
+            isKeyboardVisible = false
+        }
     }
     
-    struct HideKeyboardButton: View {
-        var body: some View {
-            Button(action: {
-                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-            }) {
-                Text("Hide Keyboard")
+    @ViewBuilder
+    private var InputField: some View {
+        Form {
+            if !viewModel.errorMessage.isEmpty {
+                Text(viewModel.errorMessage)
+                    .foregroundColor(.red)
             }
+            
+            TextField("Email Address", text: $viewModel.email)
+                .textFieldStyle(DefaultTextFieldStyle())
+                .autocapitalization(.none)
+            
+            TextField("Password", text: $viewModel.password)
+                .textFieldStyle(DefaultTextFieldStyle())
+            
+            TLButton(title: "Log In", background: .blue) {
+                viewModel.login()
+            }
+            .padding()
+            
+            // Create Account
+            VStack {
+                Text("New around here?")
+                    .foregroundColor(.red)
+                
+                NavigationLink("Create An Account", destination: RegisterView())
+                    .foregroundColor(.blue)
+            }
+            .padding(5)
         }
     }
-
 }
 
 struct LoginView_Previews: PreviewProvider {

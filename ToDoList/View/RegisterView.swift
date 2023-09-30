@@ -11,6 +11,9 @@ struct RegisterView: View {
     
     @StateObject var viewModel = RegisterViewViewModel()
     
+    @State private var isKeyboardVisible = false
+    @State private var isShowPhotoLibrary = false
+    
     var body: some View {
         VStack {
             // Header
@@ -19,28 +22,69 @@ struct RegisterView: View {
                        angle: -15,
                        background: .orange)
             
-            Form {
-                TextField("Full Name", text: $viewModel.name)
-                    .textFieldStyle(DefaultTextFieldStyle())
-                    .autocorrectionDisabled()
-                
-                TextField("Email Address", text: $viewModel.email)
-                    .textFieldStyle(DefaultTextFieldStyle())
-                    .autocapitalization(.none)
-                    .autocorrectionDisabled()
-                
-                TextField("Password", text: $viewModel.password)
-                    .textFieldStyle(DefaultTextFieldStyle())
-                
-                TLButton(title: "Create Account", background: .green) {
-                    viewModel.register()
-                }
-                .padding()
-                
-            }
-            .offset(y: -50)
+            InputField
+                .padding(.top, -100)
             
-            Spacer()
+            if isKeyboardVisible {
+                HideKeyboardButton()
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
+            isKeyboardVisible = true
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
+            isKeyboardVisible = false
+        }
+        .sheet(isPresented: $isShowPhotoLibrary) {
+            ImagePicker(selectedImage: Binding<UIImage>(
+                get: { self.viewModel.cover ?? UIImage() },
+                set: { self.viewModel.cover = $0 }
+            ), sourceType: .photoLibrary)
+        }
+    }
+    
+    @ViewBuilder
+    private var InputField: some View {
+        Form {
+            HStack {
+                Spacer()
+                Button(action: {
+                    isShowPhotoLibrary = true
+                }, label: {
+                    if let image: UIImage = viewModel.cover {
+                        Image(uiImage: image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 50, height: 50)
+                            .clipped()
+                            .cornerRadius(25)
+                    } else {
+                        Image(systemName: "person.circle")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .foregroundColor(.blue)
+                            .frame(width: 50, height: 50)
+                    }
+                })
+                Spacer()
+            }
+            
+            TextField("Full Name", text: $viewModel.name)
+                .textFieldStyle(DefaultTextFieldStyle())
+                .autocorrectionDisabled()
+            
+            TextField("Email Address", text: $viewModel.email)
+                .textFieldStyle(DefaultTextFieldStyle())
+                .autocapitalization(.none)
+                .autocorrectionDisabled()
+            
+            TextField("Password", text: $viewModel.password)
+                .textFieldStyle(DefaultTextFieldStyle())
+            
+            TLButton(title: "Create Account", background: .green) {
+                viewModel.uploadPhoto()
+            }
+            .padding()
         }
     }
 }
