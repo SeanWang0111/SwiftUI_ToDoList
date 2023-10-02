@@ -12,5 +12,10 @@ struct User: Codable {
     let avatar: String
     let name: String
     let email: String
+    var darkMode: Bool
     let joined: TimeInterval
+    
+    mutating func setDarkMode(_ state: Bool) {
+        darkMode = state
+    }
 }

@@ -5,13 +5,16 @@
 //  Created by 王奕翔 on 2023/9/13.
 //
 
+import FirebaseAuth
 import FirebaseFirestore
 import Foundation
 
-/// ViewModel for single to do list item view (each row in items list)
+/// ViewModel for list of items view
+/// Primary lab
 class ToDoListViewViewModel: ObservableObject {
     
     @Published var showingNewItemView: Bool = false
+    @Published var darkMode: Bool = true
     
     private let userId: String
     
@@ -21,12 +24,22 @@ class ToDoListViewViewModel: ObservableObject {
     
     /// Delete to do list item
     /// - Parameter id: item id to delete
-    func delete(id: String) {
+    public func delete(id: String) {
         let db = Firestore.firestore()
         db.collection("users")
             .document(userId)
             .collection("todos")
             .document(id)
             .delete()
+    }
+    
+    public func getMode() {
+        let db = Firestore.firestore()
+        db.collection("users").document(userId).getDocument { [weak self] snapshot, error in
+            guard let data: [String : Any] = snapshot?.data(), error == nil else { return }
+            DispatchQueue.main.async {
+                self?.darkMode = data["darkMode"] as? Bool ?? true
+            }
+        }
     }
 }

@@ -46,6 +46,11 @@ struct RegisterView: View {
     @ViewBuilder
     private var InputField: some View {
         Form {
+            if !viewModel.errorMessage.isEmpty {
+                Text(viewModel.errorMessage)
+                    .foregroundColor(.red)
+            }
+            
             HStack {
                 Spacer()
                 Button(action: {
@@ -82,7 +87,7 @@ struct RegisterView: View {
                 .textFieldStyle(DefaultTextFieldStyle())
             
             TLButton(title: "Create Account", background: .green) {
-                viewModel.uploadPhoto()
+                viewModel.createAccount()
             }
             .padding()
         }

@@ -15,11 +15,14 @@ class NewItemViewViewModel: ObservableObject {
     @Published var dueDate = Date()
     @Published var showAlert: Bool = false
     
+    public var canSave: Bool {
+        return !title.trimmingCharacters(in: .whitespaces).isEmpty && dueDate >= Date().addingTimeInterval(-86400)
+    }
+    
     init() { }
     
-    func save() {
+    public func save() {
         guard canSave else { return }
-        
         // Get current user id
         guard let uId: String = Auth.auth().currentUser?.uid else { return }
         
@@ -38,9 +41,5 @@ class NewItemViewViewModel: ObservableObject {
             .collection("todos")
             .document(newId)
             .setData(newItem.asDictionary())
-    }
-    
-    var canSave: Bool {
-        return !title.trimmingCharacters(in: .whitespaces).isEmpty && dueDate >= Date().addingTimeInterval(-86400)
     }
 }

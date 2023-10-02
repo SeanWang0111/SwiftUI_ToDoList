@@ -66,6 +66,8 @@
 		067F97A92AC84BFE00614916 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 067F97A82AC84BFE00614916 /* FirebaseStorageCombine-Community */; };
 		067F97AB2AC853AA00614916 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F97AA2AC853AA00614916 /* ImagePicker.swift */; };
 		067F97AD2AC85A5E00614916 /* HideKeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F97AC2AC85A5E00614916 /* HideKeyboardButton.swift */; };
+		067F97B12ACB2BB800614916 /* DMButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F97B02ACB2BB800614916 /* DMButton.swift */; };
+		067F97B32ACB323400614916 /* MessageText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F97B22ACB323400614916 /* MessageText.swift */; };
 		0691EDE82AB1B75600CA92AD /* ToDoListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691EDE72AB1B75600CA92AD /* ToDoListApp.swift */; };
 		0691EDEA2AB1B75600CA92AD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691EDE92AB1B75600CA92AD /* MainView.swift */; };
 		0691EDEC2AB1B75700CA92AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0691EDEB2AB1B75700CA92AD /* Assets.xcassets */; };
@@ -99,6 +101,8 @@
 		067F973C2AC843D800614916 /* LOAD.GIF */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = LOAD.GIF; sourceTree = "<group>"; };
 		067F97AA2AC853AA00614916 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		067F97AC2AC85A5E00614916 /* HideKeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboardButton.swift; sourceTree = "<group>"; };
+		067F97B02ACB2BB800614916 /* DMButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMButton.swift; sourceTree = "<group>"; };
+		067F97B22ACB323400614916 /* MessageText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageText.swift; sourceTree = "<group>"; };
 		0691EDE42AB1B75600CA92AD /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0691EDE72AB1B75600CA92AD /* ToDoListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListApp.swift; sourceTree = "<group>"; };
 		0691EDE92AB1B75600CA92AD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -243,11 +247,12 @@
 		0691EDFE2AB1D90300CA92AD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				067F97B02ACB2BB800614916 /* DMButton.swift */,
 				0691EE202AB305BD00CA92AD /* HeaderView.swift */,
 				067F97AC2AC85A5E00614916 /* HideKeyboardButton.swift */,
-				067F97AA2AC853AA00614916 /* ImagePicker.swift */,
 				0691EE042AB1E65200CA92AD /* LoginView.swift */,
 				0691EDE92AB1B75600CA92AD /* MainView.swift */,
+				067F97B22ACB323400614916 /* MessageText.swift */,
 				0691EE0A2AB1EF9B00CA92AD /* NewItemView.swift */,
 				0691EE022AB1E4EA00CA92AD /* ProfileView.swift */,
 				0691EE062AB1EEF800CA92AD /* RegisterView.swift */,
@@ -285,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				062189852AC7308500F65105 /* Launch Screen.storyboard */,
+				067F97AA2AC853AA00614916 /* ImagePicker.swift */,
 				0691EDE72AB1B75600CA92AD /* ToDoListApp.swift */,
 				0691EDEB2AB1B75700CA92AD /* Assets.xcassets */,
 				0691EDFC2AB1BE1300CA92AD /* GoogleService-Info.plist */,
@@ -451,12 +457,14 @@
 				0691EE032AB1E4EA00CA92AD /* ProfileView.swift in Sources */,
 				0691EE0F2AB1F0BC00CA92AD /* User.swift in Sources */,
 				0691EE0D2AB1EFFA00CA92AD /* ToDoListItemView.swift in Sources */,
+				067F97B32ACB323400614916 /* MessageText.swift in Sources */,
 				0691EE172AB1F2C600CA92AD /* ToDoListViewViewModel.swift in Sources */,
 				0691EE1B2AB1F34A00CA92AD /* LoginViewViewModel.swift in Sources */,
 				0691EE052AB1E65200CA92AD /* LoginView.swift in Sources */,
 				0691EE112AB1F0DD00CA92AD /* ToDoListItem.swift in Sources */,
 				0691EDE82AB1B75600CA92AD /* ToDoListApp.swift in Sources */,
 				0691EE192AB1F30F00CA92AD /* NewItemViewViewModel.swift in Sources */,
+				067F97B12ACB2BB800614916 /* DMButton.swift in Sources */,
 				0691EE1F2AB1F39D00CA92AD /* ToDoListItemViewViewModel.swift in Sources */,
 				06E4D2E52ABF5A7200E0B25A /* Encodable.swift in Sources */,
 			);

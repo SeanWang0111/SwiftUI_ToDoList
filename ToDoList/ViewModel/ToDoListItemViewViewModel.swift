@@ -14,14 +14,14 @@ class ToDoListItemViewViewModel: ObservableObject {
     
     init() { }
     
-    func toggleIsDone(item: ToDoListItem) {
-        var newItem = item
+    public func toggleIsDone(item: ToDoListItem) {
+        var newItem: ToDoListItem = item
         newItem.setDone(!item.isDone)
         
-        guard let uid: String = Auth.auth().currentUser?.uid else { return }
+        guard let userId: String = Auth.auth().currentUser?.uid else { return }
         let db = Firestore.firestore()
         db.collection("users")
-            .document(uid)
+            .document(userId)
             .collection("todos")
             .document(newItem.id)
             .setData(newItem.asDictionary())

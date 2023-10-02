@@ -22,6 +22,7 @@ struct ProfileView: View {
             }
             .navigationTitle("Profile")
         }
+        .preferredColorScheme(viewModel.darkMode ? .dark : .light)
         .onAppear {
             viewModel.fetchUser()
         }
@@ -30,33 +31,50 @@ struct ProfileView: View {
     @ViewBuilder
     private func profile(user: User) -> some View {
         // Avatar
-        Image(systemName: "person.circle")
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .foregroundColor(.blue)
-            .frame(width: 125, height: 125)
-            .padding()
+        if let image: UIImage = viewModel.image {
+            Image(uiImage: image)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 150, height: 150)
+                .clipped()
+                .cornerRadius(75)
+                .padding()
+        } else {
+            Image(systemName: "person.circle")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .foregroundColor(.blue)
+                .frame(width: 150, height: 150)
+                .padding()
+        }
         
         // Info: Name, Email, Member since
         VStack(alignment: .leading) {
-            HStack {
-                Text("Name: ")
-                    .bold()
-                Text(user.name)
-            }
-            .padding()
+            MessageText(title: "Name: ", message: user.name)
+                .padding()
+            
+            MessageText(title: "Email: ", message: user.email)
+                .padding()
+            
+            MessageText(title: "Member Since: ",
+                        message: "\(Date(timeIntervalSince1970: user.joined).formatted(date: .abbreviated, time: .shortened))")
+                .padding()
             
             HStack {
-                Text("Email: ")
-                    .bold()
-                Text(user.email)
-            }
-            .padding()
-            
-            HStack {
-                Text("Member Since: ")
-                    .bold()
-                Text("\(Date(timeIntervalSince1970: user.joined).formatted(date: .abbreviated, time: .shortened))")
+                Text("Mode: ").bold()
+                
+                Spacer(minLength: 1)
+                
+                DMButton(title: "Light", isDark: viewModel.darkMode) {
+                    viewModel.setMode(false)
+                }
+                .padding(.trailing, 30)
+                
+                DMButton(title: "Dark", isDark: viewModel.darkMode) {
+                    viewModel.setMode(true)
+                }
+                
+                Spacer(minLength: 1)
             }
             .padding()
         }

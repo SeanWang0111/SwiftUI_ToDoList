@@ -33,6 +33,10 @@ struct ToDoListView: View {
                 .listStyle(PlainListStyle())
             }
             .navigationTitle("To Do List")
+            .preferredColorScheme(viewModel.darkMode ? .dark : .light)
+            .onAppear {
+                viewModel.getMode()
+            }
             .toolbar {
                 Button {
                     // Action

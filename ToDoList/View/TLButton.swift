@@ -31,9 +31,7 @@ struct TLButton: View {
 
 struct TLButton_Previews: PreviewProvider {
     static var previews: some View {
-        TLButton(title: "View",
-                 background: .pink) {
-            
+        TLButton(title: "View",  background: .pink) {
         }
     }
 }

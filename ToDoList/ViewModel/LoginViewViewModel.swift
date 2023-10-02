@@ -10,15 +10,15 @@ import Foundation
 
 class LoginViewViewModel: ObservableObject {
     
-    @Published var email = ""
-    @Published var password = ""
-    @Published var errorMessage = ""
+    @Published var email: String = ""
+    @Published var password: String = ""
+    
+    @Published var errorMessage: String = ""
     
     init() { }
     
-    func login() {
+    public func login() {
         guard validate() else { return }
-        
         // try log in
         Auth.auth().signIn(withEmail: email, password: password)
     }
