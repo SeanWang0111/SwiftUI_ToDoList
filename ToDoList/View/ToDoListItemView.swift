@@ -14,9 +14,15 @@ struct ToDoListItemView: View {
     
     var body: some View {
         HStack {
+            Circle()
+                .fill(ArrayManager.colorArr[item.color])
+                .frame(width: 20)
+                .padding(.leading, 10)
+            
             VStack(alignment: .leading) {
                 Text(item.title)
-                    .font(.body)
+                    .font(.system(size: 25))
+                    .bold()
                 
                 Text("\(Date(timeIntervalSince1970: item.dueDate).formatted(date: .abbreviated, time: .shortened))")
                     .font(.footnote)
@@ -29,14 +35,17 @@ struct ToDoListItemView: View {
                 viewModel.toggleIsDone(item: item)
             } label: {
                 Image(systemName: item.isDone ? "checkmark.circle.fill" : "circle")
+                    .imageScale(.large)
             }
+            .padding(.trailing, 10)
         }
     }
 }
 
 struct ToDoListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        ToDoListItemView(item: .init(id: "123",
+        ToDoListItemView(item: .init(id: "123", 
+                                     color: 0,
                                      title: "Get milk",
                                      dueDate: Date().timeIntervalSince1970,
                                      createdDate: Date().timeIntervalSince1970,

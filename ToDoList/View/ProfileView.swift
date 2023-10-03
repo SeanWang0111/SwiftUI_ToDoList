@@ -32,19 +32,26 @@ struct ProfileView: View {
     private func profile(user: User) -> some View {
         // Avatar
         if let image: UIImage = viewModel.image {
-            Image(uiImage: image)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 150, height: 150)
-                .clipped()
-                .cornerRadius(75)
-                .padding()
+            ZStack {
+                Circle()
+                    .fill(AngularGradient(gradient: Gradient(colors: [.blue, .purple, .pink, .blue]),
+                                          center: .center))
+                    .frame(width: 160)
+                
+                Image(uiImage: image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 150, height: 150)
+                    .clipped()
+                    .cornerRadius(75)
+            }
+            .padding()
         } else {
             Image(systemName: "person.circle")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .foregroundColor(.blue)
-                .frame(width: 150, height: 150)
+                .frame(width: 160, height: 160)
                 .padding()
         }
         
@@ -81,11 +88,23 @@ struct ProfileView: View {
         .padding()
         
         // Sign out
-        Button("Log Out") {
+        Button(action: {
             viewModel.logOut()
-        }
-        .tint(.red)
-        .padding()
+        }, label: {
+            Text("Log Out")
+                .tint(LinearGradient(gradient: Gradient(colors: [.purple, .red]),
+                                     startPoint: .leading,
+                                     endPoint: .trailing))
+                .font(.system(size: 30))
+                .padding(.horizontal, 10)
+        })
+        .padding(5)
+        .overlay(
+            RoundedRectangle(cornerRadius: 30)
+                .stroke(LinearGradient(gradient: Gradient(colors: [.purple, .red]),
+                                       startPoint: .leading,
+                                       endPoint: .trailing), lineWidth: 2)
+        )
         
         Spacer()
     }

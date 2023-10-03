@@ -68,6 +68,8 @@
 		067F97AD2AC85A5E00614916 /* HideKeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F97AC2AC85A5E00614916 /* HideKeyboardButton.swift */; };
 		067F97B12ACB2BB800614916 /* DMButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F97B02ACB2BB800614916 /* DMButton.swift */; };
 		067F97B32ACB323400614916 /* MessageText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F97B22ACB323400614916 /* MessageText.swift */; };
+		067F97B62ACC747700614916 /* ArrayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F97B52ACC747700614916 /* ArrayManager.swift */; };
+		067F97BA2ACC776400614916 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F97B92ACC776400614916 /* ColorCell.swift */; };
 		0691EDE82AB1B75600CA92AD /* ToDoListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691EDE72AB1B75600CA92AD /* ToDoListApp.swift */; };
 		0691EDEA2AB1B75600CA92AD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691EDE92AB1B75600CA92AD /* MainView.swift */; };
 		0691EDEC2AB1B75700CA92AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0691EDEB2AB1B75700CA92AD /* Assets.xcassets */; };
@@ -103,6 +105,8 @@
 		067F97AC2AC85A5E00614916 /* HideKeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboardButton.swift; sourceTree = "<group>"; };
 		067F97B02ACB2BB800614916 /* DMButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMButton.swift; sourceTree = "<group>"; };
 		067F97B22ACB323400614916 /* MessageText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageText.swift; sourceTree = "<group>"; };
+		067F97B52ACC747700614916 /* ArrayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayManager.swift; sourceTree = "<group>"; };
+		067F97B92ACC776400614916 /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		0691EDE42AB1B75600CA92AD /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0691EDE72AB1B75600CA92AD /* ToDoListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListApp.swift; sourceTree = "<group>"; };
 		0691EDE92AB1B75600CA92AD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -206,6 +210,14 @@
 			path = GIF;
 			sourceTree = "<group>";
 		};
+		067F97B42ACC743100614916 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				067F97B52ACC747700614916 /* ArrayManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		0691EDDB2AB1B75600CA92AD = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +239,7 @@
 			children = (
 				06E4D2E62ABF5BEF00E0B25A /* Extension */,
 				067F973B2AC843C200614916 /* GIF */,
+				067F97B42ACC743100614916 /* Manager */,
 				0691EE002AB1D96600CA92AD /* Model */,
 				0691EE012AB1DA7900CA92AD /* Other */,
 				0691EDFE2AB1D90300CA92AD /* View */,
@@ -247,6 +260,7 @@
 		0691EDFE2AB1D90300CA92AD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				067F97B92ACC776400614916 /* ColorCell.swift */,
 				067F97B02ACB2BB800614916 /* DMButton.swift */,
 				0691EE202AB305BD00CA92AD /* HeaderView.swift */,
 				067F97AC2AC85A5E00614916 /* HideKeyboardButton.swift */,
@@ -453,6 +467,8 @@
 				0691EE0B2AB1EF9B00CA92AD /* NewItemView.swift in Sources */,
 				0691EE072AB1EEF800CA92AD /* RegisterView.swift in Sources */,
 				0691EE232ABC3AAC00CA92AD /* TLButton.swift in Sources */,
+				067F97B62ACC747700614916 /* ArrayManager.swift in Sources */,
+				067F97BA2ACC776400614916 /* ColorCell.swift in Sources */,
 				0691EE152AB1F16100CA92AD /* ProfileViewViewModel.swift in Sources */,
 				0691EE032AB1E4EA00CA92AD /* ProfileView.swift in Sources */,
 				0691EE0F2AB1F0BC00CA92AD /* User.swift in Sources */,

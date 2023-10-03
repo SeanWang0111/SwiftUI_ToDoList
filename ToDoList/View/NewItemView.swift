@@ -11,16 +11,24 @@ struct NewItemView: View {
     
     @StateObject var viewModel = NewItemViewViewModel()
     @Binding var newItemPresented: Bool
-    
+    @State private var isKeyboardVisible = false
     
     var body: some View {
         VStack {
             Text("New Item")
-                .font(.system(size: 32))
+                .font(.system(size: 40))
                 .bold()
-                .padding(.top, 100)
+                .padding(.top, 50)
             
             Form {
+                LazyVGrid(columns: Array(repeating: GridItem(), count: ArrayManager.colorArr.count), spacing: 16) {
+                    ForEach(ArrayManager.colorArr.indices, id: \.self) { index in
+                        ColorCell(color: ArrayManager.colorArr[index], index: index, selectedColorIndex: viewModel.colorSelect) {
+                            viewModel.colorSelect = index
+                        }
+                    }
+                }
+                
                 // Title
                 TextField("Title", text: $viewModel.title)
                     .textFieldStyle(DefaultTextFieldStyle())
@@ -44,6 +52,16 @@ struct NewItemView: View {
                 Alert(title: Text("Error"),
                       message: Text("Please fill all fields and select due date that is today or newer."))
             }
+            
+            if isKeyboardVisible {
+                HideKeyboardButton()
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
+            isKeyboardVisible = true
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
+            isKeyboardVisible = false
         }
     }
 }

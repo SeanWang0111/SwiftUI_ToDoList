@@ -12,6 +12,7 @@ import Foundation
 class NewItemViewViewModel: ObservableObject {
     
     @Published var title: String = ""
+    @Published var colorSelect: Int = 0
     @Published var dueDate = Date()
     @Published var showAlert: Bool = false
     
@@ -29,6 +30,7 @@ class NewItemViewViewModel: ObservableObject {
         // Create model
         let newId: String = UUID().uuidString
         let newItem = ToDoListItem(id: newId,
+                                   color: colorSelect,
                                    title: title,
                                    dueDate: dueDate.timeIntervalSince1970,
                                    createdDate: Date().timeIntervalSince1970,
