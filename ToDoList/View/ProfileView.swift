@@ -15,7 +15,7 @@ struct ProfileView: View {
         NavigationView {
             VStack {
                 if let user: User = viewModel.user {
-                    profile(user: user)
+                    Profile(user: user)
                 } else {
                     Text("Loading Profile...")
                 }
@@ -29,7 +29,7 @@ struct ProfileView: View {
     }
     
     @ViewBuilder
-    private func profile(user: User) -> some View {
+    private func Profile(user: User) -> some View {
         // Avatar
         if let image: UIImage = viewModel.image {
             ZStack {
